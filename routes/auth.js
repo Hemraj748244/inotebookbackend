@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/Users');
 const { body, validationResult } = require('express-validator');
+const fetchuser = require('../middlewares/fetchuser');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
@@ -118,8 +119,16 @@ router.post('/api/auth/login', [
 //Route 3 : Getting the details of the user.
 
 
-
-
+router.post('/api/auth/getuser', fetchuser, async (req, res) => {
+  const userId = req.user.id;
+  try {
+    const user = await User.findById(userId).select("-password");
+    res.send(user);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Some Error Occurred!")
+  }
+});
 
 
 module.exports = router;

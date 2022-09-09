@@ -9,7 +9,7 @@ app.use(express.json())
 
 app.use(require('./routes/auth'));
 // console.log("auth called");
-// app.use(require('./routes/notes'));
+app.use(require('./routes/notes'));
 
 // app.get('/', function(req, res) {
 //   res.send('App is running');
