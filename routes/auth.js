@@ -5,9 +5,6 @@ const { body, validationResult } = require('express-validator');
 const fetchuser = require('../middlewares/fetchuser');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-
-
-
 const JWT_SECRET_SIGN = 'hemr@jsinght#@kur';
 
 //ROUTE 1 : Creating a user (user registration) path: /api/auth/createuser no login required
@@ -46,12 +43,7 @@ router.post('/api/auth/createuser', [
           id: user.id
         }
       }
-
-
       const authtoken = jwt.sign(data, JWT_SECRET_SIGN);
-
-
-
       console.log(authtoken);
       res.send(authtoken);
     } catch (error) {
@@ -77,13 +69,11 @@ router.post('/api/auth/login', [
   body('email', 'Please enter valid credentials').isEmail(),
   body('password', 'Please enter valid credentials').isLength({ min: 4 }),
 ],
-
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
-
     try {
       let user = await User.findOne({ email: req.body.email });//return a promise
       //if user is not present in the collection then findOne will return a null value 
