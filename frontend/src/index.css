@@ -12,6 +12,6 @@ code {
     monospace;
 }
 
-i{
- padding-left:200px;
+i {
+  cursor:pointer;
 }

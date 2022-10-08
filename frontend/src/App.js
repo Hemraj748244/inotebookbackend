@@ -5,7 +5,7 @@ import Footer from './Components/Footer';
 import Home from './Components/Home';
 import About from './Components/About';
 import NoteState from "./Context/NotesContext/NoteState";
-
+import Alert from './Components/Alert';
 
 export default function App() {
   return (
@@ -13,6 +13,7 @@ export default function App() {
       <div className="App">
         <Router>
           <Navbar />
+          <Alert message="this is alert" />
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/about' element={<About />} />

@@ -4,6 +4,7 @@ import Note from "./Note"
 
 export default function Home() {
 
+
   return (
     <>
       <div className="container">
