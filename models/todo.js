@@ -17,13 +17,6 @@ const todoSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  phonenumber: {
-    type: Number,
-    required: true,
-  },
-  date: {
-    type: Date,
-    default: Date.now,
-  }
+ 
 });
 module.exports = mongoose.model('USER', todoSchema);
