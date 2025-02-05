@@ -17,6 +17,5 @@ const todoSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
- console.log("Hello")
 });
 module.exports = mongoose.model('USER', todoSchema);
