@@ -17,5 +17,6 @@ const todoSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  "SOmething from todo" 
 });
 module.exports = mongoose.model('USER', todoSchema);
